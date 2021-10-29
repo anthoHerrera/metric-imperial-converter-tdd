@@ -50,11 +50,42 @@ suite("Unit Tests", function () {
         assert.equal(convertHandler.getReturnUnit('mi'), 'km');
         assert.equal(convertHandler.getReturnUnit('km'), 'mi');
     });
-    /*test("spelled-out string unit for each valid input unit", function () {});
-    test("convert gal to L", function () {});
-    test("convert L to gal.", function () {});
-    test("convert mi to km", function () {});
-    test("convert km to mi", function () {});
-    test("convert lbs to kg", function () {});
-    test("convert kg to lbs", function () {});*/
+    test("spelled-out string unit for each valid input unit", function () {
+        assert.equal(convertHandler.spellOutUnit('gal'), 'gallons');
+        assert.equal(convertHandler.spellOutUnit('L'), 'liters');
+        assert.equal(convertHandler.spellOutUnit('lbs'), 'pounds');
+        assert.equal(convertHandler.spellOutUnit('kg'), 'kilograms');
+        assert.equal(convertHandler.spellOutUnit('mi'), 'miles');
+        assert.equal(convertHandler.spellOutUnit('km'), 'kilometers');
+    });
+    test("convert gal to L", function () {
+        let initNum = 4;
+        let initUnit = 'gal'
+        assert.equal(convertHandler.convert(initNum, initUnit), 15.14164);
+    });
+    test("convert L to gal.", function () {
+        let initNum = 2;
+        let initUnit = 'L'
+        assert.equal(convertHandler.convert(initNum, initUnit), 0.52834);
+    });
+    test("convert mi to km", function () {
+        let initNum = 3;
+        let initUnit = 'mi'
+        assert.equal(convertHandler.convert(initNum, initUnit), 4.82802);
+    });
+    test("convert km to mi", function () {
+        let initNum = 10;
+        let initUnit = 'km'
+        assert.equal(convertHandler.convert(initNum, initUnit), 6.21373);
+    });
+    test("convert lbs to kg", function () {
+        let initNum = 18;
+        let initUnit = 'lbs'
+        assert.equal(convertHandler.convert(initNum, initUnit), 8.16466);
+    });
+    test("convert kg to lbs", function () {
+        let initNum = 15;
+        let initUnit = 'kg'
+        assert.equal(convertHandler.convert(initNum, initUnit), 33.06937);
+    });
 });
