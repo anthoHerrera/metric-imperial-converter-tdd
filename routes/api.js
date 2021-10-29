@@ -21,13 +21,13 @@ router.route("/").get((req, res) => {
             returnNum,
             returnUnit
         );
-        if(initNum instanceof Error && !(convertHandler.spellOutUnit(initUnit) instanceof Error)) {
+        if(initNum === 'invalid number' && convertHandler.spellOutUnit(initUnit) !== 'invalid unit') {
             throw new Error('invalid number');
         }
-        if(!(initNum instanceof Error) && convertHandler.spellOutUnit(initUnit) instanceof Error) {
+        if(initNum !== 'invalid number' && convertHandler.spellOutUnit(initUnit) === 'invalid unit') {
             throw new Error('invalid unit');
         }
-        if(initNum instanceof Error && convertHandler.spellOutUnit(initUnit) instanceof Error) {
+        if(initNum === 'invalid number' && convertHandler.spellOutUnit(initUnit) === 'invalid unit') {
             throw new Error('invalid number and unit');
         }
         let responseObject = {

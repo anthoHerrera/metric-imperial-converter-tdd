@@ -18,13 +18,14 @@ function ConvertHandler() {
         let result = splitInput[0];
         let validDoubleFraction = result.match(regexDoubleFraction);
         if (validDoubleFraction) countFractions = validDoubleFraction.length;
-        return countFractions > 1 ? new Error('invalid number') : eval(result);
+        return countFractions > 1 ? 'invalid number' : eval(result);
     };
 
     this.getUnit = function (input) {
         let result = input.match(regexSplitNumbersAndLetters)[1];
         //no input number
         if(!result) result = input.match(regexSplitNumbersAndLetters)[0];
+        if(!mapUnit[result.toLowerCase()]) return 'invalid unit';
         
         return result === 'L' || result === 'l' ? result.toUpperCase() : result.toLowerCase();
     };
@@ -36,7 +37,7 @@ function ConvertHandler() {
     };
 
     this.spellOutUnit = function (unit) {
-        if(unit === undefined) return new Error('invalid unit');
+        if(unit === undefined) return 'invalid unit';
         if (unit.toLowerCase() === "gal") {
             return "gallons";
         }
@@ -55,7 +56,7 @@ function ConvertHandler() {
         if (unit.toLowerCase() === "kg") {
             return "kilograms";
         }
-        return new Error('invalid unit');
+        return 'invalid unit';
     };
 
     this.convert = function (initNum, initUnit) {

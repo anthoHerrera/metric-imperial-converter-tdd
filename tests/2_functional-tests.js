@@ -5,7 +5,7 @@ const server = require("../server");
 
 chai.use(chaiHttp);
 
-suite("Functional Tests", function () {
+/*suite("Functional Tests", function () {
     test("Convert a valid input such as 10L: GET request to /api/convert", function (done) {
         chai.request(server)
             .get("/api/convert?input=10L")
@@ -69,4 +69,4 @@ suite("Functional Tests", function () {
                 done();
             });
     });
-});
+});*/
