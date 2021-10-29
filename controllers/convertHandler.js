@@ -25,7 +25,8 @@ function ConvertHandler() {
         let result = input.match(regexSplitNumbersAndLetters)[1];
         //no input number
         if(!result) result = input.match(regexSplitNumbersAndLetters)[0];
-        return result === 'L' ? result : result.toLowerCase();
+        
+        return result === 'L' || result === 'l' ? result.toUpperCase() : result.toLowerCase();
     };
 
     this.getReturnUnit = function (initUnit) {
