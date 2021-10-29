@@ -25,13 +25,13 @@ function ConvertHandler() {
         let result = input.match(regexSplitNumbersAndLetters)[1];
         //no input number
         if(!result) result = input.match(regexSplitNumbersAndLetters)[0];
-        return result;
+        return result === 'L' ? result : result.toLowerCase();
     };
 
     this.getReturnUnit = function (initUnit) {
         let result;
         result = mapUnit[initUnit.toLowerCase()];
-        return result;
+        return result === 'l' ? result.toUpperCase() : result;
     };
 
     this.spellOutUnit = function (unit) {

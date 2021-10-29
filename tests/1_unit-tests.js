@@ -33,7 +33,7 @@ suite("Unit Tests", function () {
         assert.equal(convertHandler.getNum(input), 1);
     });
     test("valid input unit.", function () {
-        let units = ['gal', 'L', 'lbs', 'kg', 'mi', 'km'];
+        let units = ['gal', 'l', 'lbs', 'kg', 'mi', 'km', 'GAL', 'L', 'LBS', 'KG', 'MI', 'KM'];
         let input = "10L";
         assert.include(units, convertHandler.getUnit(input));
     });
