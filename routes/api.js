@@ -9,6 +9,7 @@ router.route("/").get((req, res) => {
     try {
         let convertHandler = new ConvertHandler();
         const { input } = req.query;
+        if(!input) throw new Error('invalid input');
         const initNum = convertHandler.getNum(input);
         const initUnit = convertHandler.getUnit(input);
         
@@ -38,7 +39,8 @@ router.route("/").get((req, res) => {
         };
         res.json(responseObject);
     } catch (error) {
-        res.status(500).json({ msg: error.message });
+        console.log(error.message);
+        res.status(200).send(error.message);
     }
 });
 
